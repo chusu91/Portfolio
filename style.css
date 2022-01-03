@@ -26,6 +26,9 @@
 
   /* Size */
   --border-radius: 4px;
+
+  /* Animation */
+  --animation-duration: 300ms;
 }
 
 /* Universal tags */
@@ -47,7 +50,6 @@ a {
 
 ul {
   list-style: none;
-  color: var(--color-beige);
 }
 
 li {
@@ -156,4 +158,76 @@ p {
   padding: 8px 12px;
   border: 2px solid var(--color-beige);
   border-radius: var(--border-radius);
+}
+
+/* Section common */
+.section {
+  padding: 50px;
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* About */
+#about {
+  background-color: var(--color-beige);
+}
+.about__majors {
+  margin: 80px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.major__icon {
+  height: 170px;
+  width: 170px;
+  line-height: 170px;
+  font-size: 70px;
+  margin: auto;
+  border: 1px solid var(--color-dark-grey);
+  border-radius: 50%;
+  margin-bottom: 16px;
+  color: var(--color-dark-grey);
+}
+
+.major__icon i {
+  transition: all var(--animation-duration) ease;
+}
+
+.major__icon:hover i {
+  color: var(--color-redwine);
+  transform: rotate(-30deg) scale(1.1);
+}
+
+.major__title,
+.major__description {
+  color: var(--color-dark-grey);
+}
+
+.major__description {
+  font-size: var(--font-small);
+}
+
+.school {
+  display: flex;
+  align-items: center;
+  margin: auto 0;
+}
+
+.school__description {
+  margin: 0 16px;
+  text-align: left;
+}
+
+.school__name,
+.school__period {
+  color: var(--color-light-grey);
+}
+
+.school__name {
+  font-size: var(--font-small);
+}
+
+.school__period {
+  font-size: var(--font-micro);
 }
