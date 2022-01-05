@@ -11,6 +11,7 @@
   --color-grey: #92979b;
   --color-light-grey: #7c7979;
   --color-black: #000000;
+  --color-blue: #6495ed;
 
   /* Font size */
   --font-large: 48px;
@@ -189,10 +190,10 @@ p {
   line-height: 170px;
   font-size: 70px;
   margin: auto;
-  border: 1px solid var(--color-dark-grey);
+  border: 1px solid var(--color-navy);
   border-radius: 50%;
   margin-bottom: 16px;
-  color: var(--color-dark-grey);
+  color: var(--color-navy);
 }
 
 .major__icon i {
@@ -206,7 +207,7 @@ p {
 
 .major__title,
 .major__description {
-  color: var(--color-dark-grey);
+  color: var(--color-navy);
 }
 
 .major__description {
@@ -439,4 +440,34 @@ span {
 
 .testimonial__speech-bubble a {
   color: var(--color-redwine);
+}
+
+/* Contact */
+#contact {
+  background-color: var(--color-redwine);
+}
+
+.contact__title,
+.contact__email,
+.contact__links,
+.contatct__rights {
+  color: var(--color-beige);
+}
+
+.contact__title {
+  margin: 32px 0;
+}
+
+.contact__links {
+  font-size: var(--font-large);
+  margin: 24px 0;
+}
+
+.contact__links i {
+  transition: all var(--animation-duration) ease-in;
+}
+
+.contact__links i:hover {
+  transform: scale(1.2);
+  color: var(--color-blue);
 }
