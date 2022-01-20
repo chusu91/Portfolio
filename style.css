@@ -152,9 +152,9 @@ p {
 }
 
 /* Home */
-
 .mainpage {
   background: url("imgs/backImgShadow.png") center/cover no-repeat;
+  transition: all var(--animation-duration) ease-in-out;
 }
 
 #home {

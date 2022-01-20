@@ -5,9 +5,9 @@ const navBar = document.querySelector("#navbar");
 const navbarHeight = navbar.getBoundingClientRect().height;
 window.addEventListener("scroll", () => {
   if (window.scrollY > navbarHeight) {
-    navbar.classList.add("navbar--dark");
+    navBar.classList.add("navbar--dark");
   } else {
-    navbar.classList.remove("navbar--dark");
+    navBar.classList.remove("navbar--dark");
   }
 });
 
@@ -29,6 +29,13 @@ navBarMenu.addEventListener("click", (event) => {
 const homeContactBtn = document.querySelector(".home__contact");
 homeContactBtn.addEventListener("click", () => {
   scrollIntoView("#contact");
+});
+
+// Make home contents slowly fade to transparent as the window scrolls down
+const homeContainer = document.querySelector(".home__container");
+const homeHeight = homeContainer.getBoundingClientRect().height;
+document.addEventListener("scroll", () => {
+  homeContainer.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
 function scrollIntoView(selector) {
