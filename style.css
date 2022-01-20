@@ -93,6 +93,10 @@ p {
   margin: 4px 0;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Navbar */
 #navbar {
   position: fixed;
@@ -495,6 +499,30 @@ span {
 .contact__links i:hover {
   transform: scale(1.2);
   color: var(--color-blue);
+}
+
+/* Up Button */
+.arrow-up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  font-size: 50px;
+  width: 70px;
+  height: 70px;
+  line-height: 36px;
+  background-color: var(--color-redwine);
+  color: var(--color-beige);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 300ms ease-in;
+}
+/* nico display: none으로 보여줬다 숨겼다함. 하지만 업버튼에 애니메이션을 주고 싶으면, opacity이용해야함 */
+/* 대신, 포인터이벤트를 논으로 지정해주어야 사용자가 클릭하는 거 막을 수 있음  */
+
+.arrow-up.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* For below 768px screen width */
