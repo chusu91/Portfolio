@@ -382,6 +382,10 @@ p {
   background-color: var(--color-light-white);
 }
 
+.project.invisible {
+  display: none;
+}
+
 .project__img {
   /* 프로젝트 이미지가 들어있는 부모태그에 사이즈 정해두고 */
   /* 이미지에 최대 가로 세로 백퍼센트로 넣어줌 */

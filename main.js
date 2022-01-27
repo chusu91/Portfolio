@@ -55,6 +55,26 @@ arrowUp.addEventListener("click", () => {
   scrollIntoView("#home");
 });
 
+// Project filter
+const projectBtnContainer = document.querySelector(".work__categories");
+const projectContainer = document.querySelector(".work__projects");
+const projects = document.querySelectorAll(".project");
+
+//in HTML, add data-filter to btn + add data-type to project
+//with dataset controll the filter
+projectBtnContainer.addEventListener("click", (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+
+  projects.forEach((project) => {
+    console.log(project.dataset.type);
+    if (filter === "*" || filter === project.dataset.type) {
+      project.classList.remove("invisible");
+    } else {
+      project.classList.add("invisible");
+    }
+  });
+});
+
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth" });
