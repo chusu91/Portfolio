@@ -64,15 +64,22 @@ const projects = document.querySelectorAll(".project");
 //with dataset controll the filter
 projectBtnContainer.addEventListener("click", (e) => {
   const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  if (filter == null) {
+    return;
+  }
 
-  projects.forEach((project) => {
-    console.log(project.dataset.type);
-    if (filter === "*" || filter === project.dataset.type) {
-      project.classList.remove("invisible");
-    } else {
-      project.classList.add("invisible");
-    }
-  });
+  projectContainer.classList.add("anim-out");
+
+  setTimeout(() => {
+    projects.forEach((project) => {
+      if (filter === "*" || filter === project.dataset.type) {
+        project.classList.remove("invisible");
+      } else {
+        project.classList.add("invisible");
+      }
+    });
+    projectContainer.classList.remove("anim-out");
+  }, 300);
 });
 
 function scrollIntoView(selector) {
