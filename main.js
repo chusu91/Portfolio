@@ -16,12 +16,14 @@ window.addEventListener("scroll", () => {
 const navBarMenu = document.querySelector(".navbar__menu");
 
 navBarMenu.addEventListener("click", (event) => {
-  console.log(event.target.dataset.link);
+  console.log(event.target);
+
   const target = event.target;
   const link = target.dataset.link;
   if (link == null) {
     return;
   }
+  target.classList.add("active");
   scrollIntoView(link);
 });
 
@@ -37,7 +39,6 @@ const homeHeight = homeContainer.getBoundingClientRect().height;
 
 document.addEventListener("scroll", () => {
   homeContainer.style.opacity = 1 - window.scrollY / homeHeight;
-  console.log(window.scrollY);
 });
 
 // Show "arrow up" button when scrolling down
@@ -67,6 +68,14 @@ projectBtnContainer.addEventListener("click", (e) => {
   if (filter == null) {
     return;
   }
+
+  // Remove selection from the previous item and selece the new one
+  const active = document.querySelector(".category__btn.selected");
+  active.classList.remove("selected");
+  const target =
+    e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
+  // condition ? if true this part execute : else this
+  target.classList.add("selected");
 
   projectContainer.classList.add("anim-out");
 
