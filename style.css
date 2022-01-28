@@ -193,6 +193,10 @@ p {
   border-radius: var(--border-radius);
 }
 
+.home__contact:hover {
+  background-color: var(--color-blue);
+}
+
 /* Section common */
 .section {
   padding: 50px;
@@ -333,6 +337,7 @@ p {
   border-radius: var(--border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
 }
 
 .category__btn.selected,
@@ -345,7 +350,7 @@ p {
 .category__btn.selected .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
-  top: 0;
+  top: 5px;
 }
 
 .category__count {
@@ -357,9 +362,9 @@ p {
   line-height: 24px;
   display: inline-block;
   /* span 요소를 꽉 잡아주는 크기로 지정. 인라인블럭으로 바꾸자 */
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 4px;
+  right: 16px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -538,8 +543,19 @@ span {
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
+  :root {
+    /* font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
   .navbar__toggle-btn {
     display: block;
+    top: 20px;
+    right: 20px;
+    font-size: var(--font-medium);
   }
 
   #navbar {
@@ -564,25 +580,55 @@ span {
     display: block;
   }
 
+  .section {
+    padding: 16px;
+    padding-top: 40px;
+  }
+
   .about__majors {
     flex-direction: column;
-    margin-top: 0;
+    margin-top: 30px;
+    margin-bottom: 25px;
   }
 
   .major {
-    margin-top: 38px;
+    margin-top: 30px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .category__btn {
+    margin: 4px 0;
+  }
+
   .project {
     flex-grow: 1;
   }
 
-  .testimonial__avatar {
-    width: 80px;
-    height: 80px;
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+  }
+  .testimonial__avatar:nth-child(odd),
+  .testimonial__avatar:nth-child(even) {
+    width: 120px;
+    height: 120px;
+    margin: 0;
+  }
+
+  .testimonial__speech-bubble {
+    margin-top: 10px;
+    order: 1;
+  }
+
+  .arrow-up {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    right: 16px;
+    bottom: 16px;
   }
 }
