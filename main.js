@@ -23,8 +23,14 @@ navBarMenu.addEventListener("click", (event) => {
   if (link == null) {
     return;
   }
-  target.classList.add("active");
+  navBarMenu.classList.remove("open");
   scrollIntoView(link);
+});
+
+//Navbar toggle btn
+const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
+navbarToggleBtn.addEventListener("click", () => {
+  navBarMenu.classList.toggle("open");
 });
 
 // Handle click on "Contact me" button on home
