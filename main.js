@@ -97,7 +97,74 @@ projectBtnContainer.addEventListener("click", (e) => {
   }, 300);
 });
 
+//Intersection observer
+//1. 모든 섹션 요소들과 메뉴아이템들을 가지고 온다
+//2. intersectioonObserver를 이용해서 모든 섹션들을 관찰한다
+//3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다
+
+const sectionIds = [
+  "#home",
+  "#about",
+  "#skills",
+  "#work",
+  "#testimonials",
+  "#contact",
+];
+const sections = sectionIds.map((id) => document.querySelector(id));
+const navItems = sectionIds.map(
+  (id) => document.querySelector(`[data-link= "${id}"]`) //속성값으로 셀렉트할때 대괄호
+);
+
+let selectedNavIndex;
+let selectedNavItem = navItems[0];
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove("active");
+  selectedNavItem = selected;
+  selectedNavItem.classList.add("active");
+}
+
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth" });
+  selectNavItem(navItems[sectionIds.indexOf(selector)]);
 }
+
+const observerOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.3,
+};
+
+// 로직
+// 어떤 요소가 화면 밖으로 나갈 때, 그 다음 섹션을 활성화
+// 방향을 이용해서, 섹션이 위로 빠진다면(스크롤다운) 그 아래 섹션 활성화, 섹션이 아래로빠지면(스크롤업) 그 위 섹션 활성화
+// 빠져나가는 엔트리의 y좌표가 마이너스라면 즉 뷰폴트 위로 올라가서 안보이게 되면 인덱스+1 값 활성화
+// 밑으로 빠져나가는 y좌표가 플러스인 경우엔 (스크롤업하는 경우임) 인덱스 -1 값 활성화
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      //scroll down, so page comes up
+      if (entry.boundingClientRect.y < 0) {
+        selectedNavIndex = index + 1;
+      } else {
+        selectedNavIndex = index - 1;
+      }
+    }
+  });
+};
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach((section) => observer.observe(section));
+
+//wheel 이벤트 사용자가 직접 굴려내리는 이벤트이고 스크롤은 아이템 클릭해서 자동으로 스크롤 되는 것
+window.addEventListener("wheel", () => {
+  if (window.scrollY === 0) {
+    selectedNavIndex = 0;
+  } else if (
+    Math.round(window.scrollY + window.innerHeight) >=
+    document.body.clientHeight
+  ) {
+    selectedNavIndex = navItems.length - 1;
+  }
+  selectNavItem(navItems[selectedNavIndex]);
+});

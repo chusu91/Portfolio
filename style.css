@@ -144,6 +144,10 @@ p {
   color: var(--color-navy);
 }
 
+.navbar__menu__item.active {
+  border: 1px solid var(--color-beige);
+}
+
 .navbar__toggle-btn {
   /* 기존 자리에서 빠져나와서 다시 자리 잡는 것 앱솔루트 */
   position: absolute;
