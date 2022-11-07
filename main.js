@@ -43,9 +43,9 @@ homeContactBtn.addEventListener("click", () => {
 const homeContainer = document.querySelector(".home__container");
 const homeHeight = homeContainer.getBoundingClientRect().height;
 
-document.addEventListener("scroll", () => {
-  homeContainer.style.opacity = 1 - window.scrollY / homeHeight;
-});
+// document.addEventListener("scroll", () => {
+//   homeContainer.style.opacity = 1 - window.scrollY / homeHeight;
+// });
 
 // Show "arrow up" button when scrolling down
 const arrowUp = document.querySelector(".arrow-up");
