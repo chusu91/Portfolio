@@ -494,10 +494,12 @@ span {
 /* Testimonial */
 #testimonials {
   background-color: var(--color-light-white);
+  margin-bottom: 70px;
 }
 
 .testimonials {
   margin: 40px;
+  
 }
 
 .testimonial {
