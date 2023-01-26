@@ -249,6 +249,10 @@ background: linear-gradient(22deg, rgba(163,50,149,1) 0%, rgba(231,72,125,0.9738
   color: var(--color-black);
 
 }
+.about__text{
+  line-height: 2;
+}
+
 .about__majors {
   margin: 80px 0;
   margin-bottom: 0;
@@ -433,6 +437,7 @@ background: linear-gradient(22deg, rgba(163,50,149,1) 0%, rgba(231,72,125,0.9738
   height: 250px;
   margin: 2px;
   background-color: var(--color-light-white);
+  cursor: pointer;
 }
 
 .project.invisible {
@@ -519,6 +524,7 @@ span {
   padding: 18px;
   background-color: var(--color-white);
   border-radius: var(--border-radius);
+  text-align: left;
 }
 
 .testimonial__speech-bubble p {
@@ -550,6 +556,8 @@ position: relative;
 .contact__links {
   font-size: var(--font-large);
   margin: 24px 0;
+  cursor: pointer;
+  
 }
 
 .contact__links i {
